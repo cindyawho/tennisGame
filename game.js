@@ -1,0 +1,1 @@
+console.log("Inside js file, hello world!");
