@@ -1,7 +1,7 @@
 var canvas;
 var canvasContext;
 var ballX = 50;
-var ballSpeedX = 5;
+var ballSpeedX = 10;
 var ballY = 100;
 var ballSpeedY = 3;
 
@@ -35,6 +35,12 @@ window.onload = function() {
         });
 }
 
+function ballReset() {
+    ballSpeedX = -ballSpeedX;
+    ballX = canvas.width/2;
+    ballY = canvas.height/2;
+}
+
 function moveEverything(){
     ballX += ballSpeedX;
     ballY += ballSpeedY;
@@ -42,7 +48,11 @@ function moveEverything(){
     if(ballX > canvas.width) {
         ballSpeedX = -ballSpeedX;
     } else if(ballX < 0) {
-        ballSpeedX = -ballSpeedX;
+        if(ballY > paddle1Y && ballY < paddle1Y + PADDLE_HEIGHT){
+            ballSpeedX = -ballSpeedX;
+        } else {
+            ballReset();
+        }
     }
 
     if(ballY > canvas.height) {
