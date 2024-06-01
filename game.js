@@ -33,10 +33,18 @@ function moveEverything(){
 }
 
 function drawEverything() {
-    canvasContext.fillStyle = "black";
-    canvasContext.fillRect(0, 0, canvas.width, canvas.height);
-    canvasContext.fillStyle = "white";
-    canvasContext.fillRect(0, 210, 10, 100);
-    canvasContext.fillStyle = "red";
-    canvasContext.fillRect(ballX, ballY, 10, 10);
+    //next line blanks our the screen with black
+    colorRect(0, 0, canvas.width, canvas.height, "black");
+
+    //this is the left player paddle
+    colorRect(0, 210, 10, 100, "white");
+
+    //next line draws the ball
+    colorRect(ballX, ballY, 10, 10, "red");
+}
+
+function colorRect(leftX, topY, width, height, drawColor){
+    canvasContext.fillStyle = drawColor;
+    canvasContext.fillRect(leftX, topY, width, height);
+
 }
