@@ -1,5 +1,7 @@
 var canvas;
 var canvasContext;
+var ballX = 50;
+var ballY = 50;
 
 window.onload = function() {
     canvas = document.getElementById('gameCanvas');
@@ -8,10 +10,11 @@ window.onload = function() {
 }
 
 function drawEverything() {
+    ballX += 10;
     canvasContext.fillStyle = "black";
     canvasContext.fillRect(0, 0, canvas.width, canvas.height);
     canvasContext.fillStyle = "red";
-    canvasContext.fillRect(200, 200, 50, 25);
+    canvasContext.fillRect(ballX, ballY, 50, 25);
     canvasContext.fillStyle = "white";
     canvasContext.fillRect(canvas.width/2-100, canvas.height/2-100, 200, 200);
 }
